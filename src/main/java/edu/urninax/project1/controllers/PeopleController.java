@@ -18,12 +18,10 @@ import java.util.List;
 public class PeopleController{
     private final PeopleService peopleService;
     private final PersonValidator personValidator;
-    private final PersonDAO personDAO;
 
-    public PeopleController(PersonValidator personValidator, PeopleService peopleService, PersonDAO personDAO){
+    public PeopleController(PersonValidator personValidator, PeopleService peopleService){
         this.peopleService = peopleService;
         this.personValidator = personValidator;
-        this.personDAO = personDAO;
     }
 
     @GetMapping()

@@ -10,7 +10,6 @@ import javax.validation.constraints.Size;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Objects;
 
 @Entity
 @Table(name = "book")

@@ -1,12 +1,9 @@
 package edu.urninax.project1.controllers;
 
-import edu.urninax.project1.DAO.BookDAO;
-import edu.urninax.project1.DAO.PersonDAO;
 import edu.urninax.project1.models.Book;
 import edu.urninax.project1.models.Person;
 import edu.urninax.project1.services.BooksService;
 import edu.urninax.project1.services.PeopleService;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

@@ -1,6 +1,5 @@
 package edu.urninax.project1.util;
 
-import edu.urninax.project1.DAO.PersonDAO;
 import edu.urninax.project1.models.Person;
 import edu.urninax.project1.services.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +7,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Optional;
 
 @Component
