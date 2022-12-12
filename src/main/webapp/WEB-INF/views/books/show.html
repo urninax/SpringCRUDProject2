@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Book</title>
+</head>
+<body>
+<a th:text="${book.getName() + ', ' + book.getAuthor() + ', ' + book.getProductionYear()}">Info</a>
+<br/>
+<a th:text="'Book was added at ' + ${book.getFormattedAddedAt()}">Added at</a>
+<br/>
+<form th:unless="${owner}" th:method="PATCH" th:action="@{/books/{id}/assign(id=${book.getId()})}">
+    <p>This book is free. Who do you want to assign it to?</p>
+    <label for="person">Choose a person:</label>
+    <select th:object="${person}" th:field="*{id}" id="person">
+        <option th:each="person : ${people}" th:value="${person.getId()}" th:text="${person.getFullName()}"></option>
+    </select>
+    <input type="submit" value="Assign!"/>
+</form>
+
+<form th:if="${owner}" th:method="PATCH" th:action="@{/books/{id}/release(id=${book.getId()})}">
+    <p><a th:href="@{/people/{id}(id=${owner.getId()})}" th:text="${owner.getFullName()}">user</a> has the book now.</p>
+    <span th:if="${book.isExpired()}" style="color:red">Book is expired. Needs to be released.</span>
+    <input type="submit" value="Release book!"/>
+</form>
+
+<form th:action="@{/books/{id}/edit(id=${book.getId()})}">
+    <button type="submit" value="Edit!">Edit</button>
+</form>
+<form th:method="DELETE" th:action="@{/books/{id}/delete(id=${book.getId()})}">
+    <button type="submit" value="Delete!">Delete</button>
+</form>
+
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0jGpopAa6huLREm4GuRazQ?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+<a href="/books">Exit</a>
+</body>
+</html>
